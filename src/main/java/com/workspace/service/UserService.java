@@ -42,4 +42,9 @@ public class UserService {
     }
 
     public void clearUsersDb(){ usersRepository.removeAllUsers();}
+
+    public void addUser(Users user) {
+        usersRepository.save(user);
+    }
+
 }

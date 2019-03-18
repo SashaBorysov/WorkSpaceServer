@@ -16,7 +16,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
     @Query(value = "select * from users where name like '%smith%'", nativeQuery = true)
     List<Users> findWhereNameStartsFromSmith();
 
-    @Query(value = "DELETE FROM users, address", nativeQuery = true)
+    @Query(value = "TRUNCATE TABLE users", nativeQuery = true)
     void removeAllUsers();
 
 }

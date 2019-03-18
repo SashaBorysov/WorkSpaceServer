@@ -21,22 +21,22 @@ public class WorkspaceApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void testJpaMethods(){
-		Address address = new Address();
-		address.setCity("Kiev");
-		address.setHomeNumber("4");
-		address.setStreet("Main Street");
-		Address address1 = new Address();
-		address1.setCity("Lviv");
-		Users users = new Users();
-		users.setAddress(address);
-		users.setEmail("someEmail@gmail.com");
-		users.setName("Sasha");
-		userService.createUsers(users);
-		Users users1 = new Users();
-		users1.setName("Ivan");
-		users1.setEmail("gmailEmail@gmail.com");
-		users1.setAddress(address1);
-		userService.createUsers(users1);
+//		Address address = new Address();
+//		address.setCity("Kiev");
+//		address.setHomeNumber("4");
+//		address.setStreet("Main Street");
+//		Address address1 = new Address();
+//		address1.setCity("Lviv");
+//		Users users = new Users();
+//		users.setAddress(address);
+//		users.setEmail("someEmail@gmail.com");
+//		users.setName("Sasha");
+//		userService.createUsers(users);
+//		Users users1 = new Users();
+//		users1.setName("Ivan");
+//		users1.setEmail("gmailEmail@gmail.com");
+//		users1.setAddress(address1);
+//		userService.createUsers(users1);
 
 //		userService.findAll().forEach(System.out::println);
 //

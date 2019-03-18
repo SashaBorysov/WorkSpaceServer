@@ -3,10 +3,7 @@ package com.workspace;
 import com.workspace.entity.Users;
 import com.workspace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,16 @@ public class UserController {
     public List<Users> getUsersByName(@PathVariable String name){
         return userService.findAllByName(name);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/users")
+    public void addTopic(@RequestBody Users user) {
+        userService.addUser(user);
+    }
+
+//    @RequestMapping(method = RequestMethod.PUT, value = "/users/{id}")
+//    public void updateTopic(@RequestBody Users user, @PathVariable String id) {
+//        userService.updateUser(id, user);
+//    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/users/clear")
     public void removeUsers() {
