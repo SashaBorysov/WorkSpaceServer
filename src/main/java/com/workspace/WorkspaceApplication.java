@@ -1,8 +1,8 @@
 package com.workspace;
-
-import com.workspace.entity.Address;
-import com.workspace.entity.Users;
-import com.workspace.service.UserService;
+//
+//import com.workspace.entity.Address;
+//import com.workspace.entity.Users;
+//import com.workspace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,8 +12,8 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 public class WorkspaceApplication {
 
-	@Autowired
-	private UserService userService;
+//	@Autowired
+//	private UserService userService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WorkspaceApplication.class, args);
