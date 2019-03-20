@@ -3,11 +3,15 @@ package com.workspace;
 //import com.workspace.entity.Address;
 //import com.workspace.entity.Users;
 //import com.workspace.service.UserService;
+import com.workspace.service.MyFunctionalInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+
+import java.lang.annotation.Annotation;
+import java.util.function.BiFunction;
 
 @SpringBootApplication
 public class WorkspaceApplication {
@@ -21,6 +25,17 @@ public class WorkspaceApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void testJpaMethods(){
+//		MyFunctionalInterface functionalInterface = (f, t) -> f + " " + t + "privet";
+//
+//		MyFunctionalInterface functionalInterface1 = new MyFunctionalInterface() {
+//			@Override
+//			public String doSmth(String first, String second) {
+//				return null;
+//			}
+//		}
+
+
+
 //		Address address = new Address();
 //		address.setCity("Kiev");
 //		address.setHomeNumber("4");

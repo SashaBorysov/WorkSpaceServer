@@ -1,25 +1,23 @@
-package com.workspace.security.services;
+package com.workspace.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.workspace.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.workspace.model.User;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class UserPrinciple implements UserDetails {
-	private static final long serialVersionUID = 1L;
+public class UserPrincipal implements UserDetails {
 
-	private Long id;
+    private Long id;
 
     private String name;
 
-    private String username;
-
+    @JsonIgnore
     private String email;
 
     @JsonIgnore
@@ -27,26 +25,22 @@ public class UserPrinciple implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(Long id, String name, 
-			    		String username, String email, String password, 
-			    		Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long id, String name, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
-        this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
     }
 
-    public static UserPrinciple build(User user) {
+    public static UserPrincipal create(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
                 new SimpleGrantedAuthority(role.getName().name())
         ).collect(Collectors.toList());
 
-        return new UserPrinciple(
+        return new UserPrincipal(
                 user.getId(),
                 user.getName(),
-                user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
                 authorities
@@ -67,7 +61,7 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override
@@ -104,8 +98,13 @@ public class UserPrinciple implements UserDetails {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        
-        UserPrinciple user = (UserPrinciple) o;
-        return Objects.equals(id, user.id);
+        UserPrincipal that = (UserPrincipal) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
     }
 }
