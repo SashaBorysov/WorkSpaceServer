@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -90,5 +91,13 @@ public class User implements Serializable {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Timestamp getLastPasswordResetDate() {
+        return null;
+    }
+
+    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
+//        this.lastPasswordResetDate = lastPasswordResetDate;
     }
 }
